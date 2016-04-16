@@ -1,22 +1,11 @@
 package mods.metadata;
 
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemMultiTextureTile;
 
-public class ItemBlockMetadata extends ItemBlock {
+public class ItemBlockMetadata extends ItemMultiTextureTile {
 
 	public ItemBlockMetadata(int id) {
-		super(id);
-		setMaxDamage(0);
-		setHasSubtypes(true);
-	}
-
-	public String getUnlocalizedName(ItemStack is) {
-		int metadata = is.getItemDamage();
-		if (metadata >= 0 && metadata < BlockMetadata.metadata.length) {
-			return super.getUnlocalizedName() + "." + BlockMetadata.metadata[metadata];
-		}
-		return super.getUnlocalizedName();
+		super(id, ModMetadata.block_metadata, BlockMetadata.metadata);
 	}
 
 }
